@@ -26,3 +26,34 @@ else
 fi
 done
 echo ${Dict[@]}
+
+
+declare -A Dic
+
+
+for (( i=1; i<=10; i++ ))
+do
+	dice1=$(( RANDOM%2 ))
+	dice2=$(( RANDOM%2 ))
+	if [ $dice1 -eq 0 ] && [ $dice2 -eq 0 ]
+        then
+                Dic[face1]="HH"
+        elif [ $dice1 -eq 0 ] && [ $dice2 -eq 1 ]
+
+	then
+                Dic[face2]="HT"
+
+	elif [ $dice1 -eq 1 ] && [ $dice2 -eq 0 ]
+
+	then
+                Dic[face3]="TH"
+
+	else
+                Dic[face4]="TT"
+
+
+        fi
+done
+
+
+echo ${Dic[@]}
